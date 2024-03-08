@@ -6,7 +6,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
   return Promise
     .allSettled(promises)
     .then((results) => (
-      results.forEach((res) => ({
+      results.map((res) => ({
         status: res.status,
         value: res.status === 'fulfilled' ? res.value : String(res.reason),
       }))
